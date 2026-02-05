@@ -1,11 +1,19 @@
 :root {
+  /* Palette variables */
+  --deep-navy: #0B132B; /* primary background */
+  --electric-blue: #1C77C3; /* links / highlights */
+  --cyan: #4DFFF3; /* accent bright */
+  --light-gray: #E5E9F0; /* primary text */
+  --accent-purple: #6C63FF; /* secondary accent */
+  --muted: rgba(229,233,240,0.82);
+
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--light-gray);
+  background-color: var(--deep-navy);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,11 +23,11 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--electric-blue);
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: var(--accent-purple);
 }
 
 body {
@@ -42,16 +50,35 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: rgba(229,233,240,0.03);
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: transform 180ms cubic-bezier(.2,.9,.2,1), box-shadow 180ms cubic-bezier(.2,.9,.2,1), border-color 180ms ease, background-color 180ms ease;
+  will-change: transform, box-shadow;
 }
-button:hover {
-  border-color: #646cff;
+button:hover,
+.btn:hover {
+  border-color: var(--accent-purple);
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 10px 30px rgba(108,99,255,0.12);
+}
+.btn.primary:hover {
+  background: linear-gradient(90deg, var(--accent-purple), var(--electric-blue));
+  color: var(--light-gray);
 }
 button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+button:focus-visible,
+.btn:focus-visible {
+  outline: 4px solid rgba(108,99,255,0.12);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px rgba(108,99,255,0.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button, .btn {
+    transition: none !important;
+    transform: none !important;
+    box-shadow: none !important;
+  }
 }
 
 @media (prefers-color-scheme: light) {

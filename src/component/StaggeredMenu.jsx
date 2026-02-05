@@ -12,9 +12,9 @@ export const StaggeredMenu = ({
   displayItemNumbering = true,
   className,
   logoUrl = '/src/assets/react.svg',
-  menuButtonColor = '#fff',
-  openMenuButtonColor = '#fff',
-  accentColor = '#5227FF',
+  menuButtonColor = '#E5E9F0',
+  openMenuButtonColor = '#E5E9F0',
+  accentColor = '#6C63FF',
   changeMenuColorOnOpen = true,
   isFixed = false,
   closeOnClickAway = true,
@@ -394,7 +394,9 @@ export const StaggeredMenu = ({
       </div>
       <header className="staggered-menu-header" aria-label="Main navigation header">
         <div className="sm-logo" aria-label="Logo">
-          <img src={logoUrl || '/src/assets/react.svg'} alt="Logo" className="sm-logo-img" draggable={false} width={110} height={24} />
+          <Link to="/" onClick={() => { if (open) closeMenu(); }} className="sm-logo-link" aria-label="Home">
+            <img src={logoUrl || '/src/assets/react.svg'} alt="STEMFLOW home" className="sm-logo-img" draggable={false} width={110} height={24} />
+          </Link>
         </div>
         <button
           ref={toggleBtnRef}

@@ -1,0 +1,16 @@
+.blog-root {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	width: 100%;
+	padding: 2rem;
+	box-sizing: border-box;
+}
+
+.blog-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+

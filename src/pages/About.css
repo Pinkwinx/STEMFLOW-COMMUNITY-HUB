@@ -1,0 +1,68 @@
+:root{
+  --bg-1: var(--deep-navy);
+  --bg-2: #0F1830;
+  --accent: var(--accent-purple);
+  --muted: var(--muted);
+}
+
+.about-root{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(2rem, 4vw, 4rem);
+  background: linear-gradient(180deg,var(--bg-1),var(--bg-2));
+  color: var(--light-gray);
+}
+
+.about-inner{
+  width: 100%;
+  max-width: 1100px;
+}
+
+.about-hero{
+  padding: 2rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.about-logo{ height: 40px; display: block; margin-bottom: 0.75rem }
+.about-title{ margin: 0 0 0.5rem 0; font-size: 2rem }
+.about-lead{ color: var(--muted); margin: 0 0 1rem 0 }
+.about-ctas{ display:flex; gap:0.8rem }
+
+.about-mission{ margin: 1.25rem 0; padding: 1rem; background: rgba(255,255,255,0.02); border-radius: 10px }
+.about-mission h2{ margin: 0 0 0.5rem 0 }
+
+.about-stats{ display:flex; gap:1.25rem; margin: 1.25rem 0 }
+.stat{ background: rgba(255,255,255,0.02); padding: 1rem; border-radius: 8px; flex:1; text-align:center }
+.stat-number{ font-size: 1.6rem; font-weight:700 }
+.stat-label{ color: var(--muted) }
+
+.about-team{ margin: 1.25rem 0 }
+.team-grid{ display:flex; gap: 1rem; margin-top: 0.75rem }
+.team-card{ background: rgba(255,255,255,0.02); padding: 1rem; border-radius: 8px; width: 180px; text-align:center }
+.avatar{ width: 56px; height:56px; border-radius:999px; margin:0 auto 0.6rem auto; display:flex; align-items:center; justify-content:center; background: linear-gradient(90deg,var(--accent), #6C63FF); color:var(--light-gray); font-weight:700 }
+.team-name{ font-weight:700 }
+.team-role{ color: var(--muted); font-size: 0.95rem }
+
+.about-cta-band{ margin-top: 1.25rem; padding: 1rem; background: linear-gradient(90deg, rgba(108,99,255,0.06), rgba(108,99,255,0.03)); border-radius:10px }
+
+@media (max-width: 880px){
+  .team-grid{ flex-direction: column; }
+  .about-stats{ flex-direction: column }
+}
+
+/* small animations */
+@keyframes fadeUp { from { opacity:0; transform: translateY(8px) } to { opacity:1; transform: translateY(0) } }
+.about-hero, .about-mission, .about-stats, .team-card, .about-cta-band{ opacity:0; transform: translateY(8px); animation: fadeUp 600ms cubic-bezier(.2,.9,.2,1) both }
+.about-hero{ animation-delay: 60ms }
+.about-mission{ animation-delay: 160ms }
+.about-stats{ animation-delay: 260ms }
+.team-card{ animation-delay: 320ms }
+.about-cta-band{ animation-delay: 420ms }
+
+@media (prefers-reduced-motion: reduce){
+  .about-hero, .about-mission, .about-stats, .team-card, .about-cta-band { animation: none !important }
+}

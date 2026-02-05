@@ -55,14 +55,14 @@
   background: transparent;
   border: none;
   cursor: pointer;
-  color: #e9e9ef;
+  color: var(--light-gray);
   font-weight: 500;
   line-height: 1;
   overflow: visible;
 }
 
 .sm-toggle:focus-visible {
-  outline: 2px solid #ffffffaa;
+  outline: 2px solid #E5E9F0AA;
   outline-offset: 4px;
   border-radius: 4px;
 }
@@ -139,7 +139,7 @@
   overflow-y: auto;
   z-index: 10;
   pointer-events: auto;
-  color: #fff;
+  color: var(--light-gray);
 }
 
 [data-position='left'] .staggered-menu-panel {
@@ -232,7 +232,7 @@
 .sm-socials-link {
   font-size: 1.2rem;
   font-weight: 500;
-  color: #fff;
+  color: var(--light-gray);
   text-decoration: none;
   position: relative;
   padding: 2px 0;
@@ -243,14 +243,13 @@
 }
 
 .sm-socials-link:hover {
-  color: var(--sm-accent, #5227ff);
 }
 
 .sm-panel-title {
   margin: 0;
   font-size: 1rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--light-gray);
   text-transform: uppercase;
 }
 
@@ -267,7 +266,7 @@
 
 .sm-panel-item {
   position: relative;
-  color: #fff;
+  color: var(--light-gray);
   font-weight: 700;
   font-size: 2.2rem;
   cursor: pointer;
@@ -303,7 +302,7 @@
 }
 
 .sm-panel-item:hover {
-  color: var(--sm-accent, #5227ff);
+  color: var(--sm-accent, var(--accent-purple));
 }
 
 .sm-panel-item:focus-visible {
@@ -312,6 +311,9 @@
   border-radius: 4px;
 }
 
+.sm-panel-list[data-numbering] .sm-panel-item::after {
+  color: var(--sm-accent, var(--accent-purple));
+}
 .sm-panel-list[data-numbering] {
   counter-reset: smItem;
 }
@@ -320,12 +322,12 @@
   counter-increment: smItem;
   content: counter(smItem, decimal-leading-zero);
   position: absolute;
-  left: 1rem; /* place number on the left */
+  left: 1rem; 
   top: 50%;
   transform: translateY(-50%);
   font-size: 14px;
   font-weight: 700;
-  color: var(--sm-accent, #5227ff);
+  color: var(--sm-accent, var(--accent-purple));
   letter-spacing: 0;
   pointer-events: none;
   user-select: none;

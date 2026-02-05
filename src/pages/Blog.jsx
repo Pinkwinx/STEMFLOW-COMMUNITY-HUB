@@ -1,9 +1,25 @@
 import React from 'react'
+import './Blog.css'
+import MagicBento from '../component/MagicBento'
+
 export default function Blog() {
   return (
-    <div style={{ padding: '6rem 2rem', color: '#fff' }}>
-      <h1>Blog</h1>
-      <p>This is the Blog page.</p>
+    <div className="blog-root">
+      <div className="blog-center">
+        <MagicBento
+          textAutoHide={true}
+          enableStars={false}
+          enableSpotlight
+          enableBorderGlow={true}
+          enableTilt
+          enableMagnetism={false}
+          clickEffect
+          spotlightRadius={590}
+          particleCount={12}
+          glowColor="132, 0, 255"
+          disableAnimations={false}
+        />
+      </div>
     </div>
   )
 }

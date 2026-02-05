@@ -1,0 +1,26 @@
+/* Styles for the FloatingLines / Background component */
+.floating-lines-container{
+  position: absolute;
+  inset: 0; /* fill parent */
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* don't block interactions */
+  overflow: hidden;
+  display: block;
+  mix-blend-mode: screen; /* allows subtle blend with page background */
+  z-index: 0;
+}
+
+/* Ensure the canvas produced by threejs fills the container */
+.floating-lines-container canvas{
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* Optional low-contrast overlay if you want to dim or tint the background */
+.floating-lines-overlay{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}

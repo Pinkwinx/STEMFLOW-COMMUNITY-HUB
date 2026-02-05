@@ -1,0 +1,66 @@
+:root{
+  --bg-1: var(--deep-navy);
+  --bg-2: #0F1830;
+  --accent: var(--accent-purple);
+  --muted: var(--muted);
+}
+
+.contact-root{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(2rem, 4vw, 4rem);
+  background: linear-gradient(180deg,var(--bg-1),var(--bg-2));
+  color: var(--light-gray);
+}
+
+.contact-inner{
+  width: 100%;
+  max-width: 960px;
+  background: linear-gradient(180deg, rgba(229,233,240,0.02), rgba(229,233,240,0.01));
+  padding: 2.25rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+.contact-logo{ height: 42px; display: block; margin-bottom: 0.75rem }
+.contact-title{ margin: 0 0 0.5rem 0; font-size: 2rem }
+.contact-lead{ color: var(--muted); margin: 0 0 1.25rem 0 }
+
+.contact-form{ display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1rem; }
+.field{ display: flex; flex-direction: column; }
+.field-label{ font-size: 0.85rem; color: var(--muted); margin-bottom: 0.45rem }
+.input, .textarea{
+  padding: 0.7rem 0.85rem;
+  border-radius: 8px;
+  border: 1px solid rgba(229,233,240,0.06);
+  background: rgba(229,233,240,0.01);
+  color: var(--light-gray);
+  font-size: 1rem;
+}
+
+.textarea{ resize: vertical; grid-column: 1 / -1 }
+
+.input.has-error, .textarea.has-error{ border-color: rgba(255,80,80,0.9) }
+.error{ color: #ff8b8b; font-size: 0.9rem; margin-top: 0.4rem }
+
+.form-actions{ grid-column: 1 / -1; display: flex; gap: 0.75rem; margin-top: 0.5rem }
+.btn{ padding: 0.6rem 1rem; border-radius: 8px; font-weight: 600; cursor: pointer; border: none }
+.btn.primary{ background: linear-gradient(90deg,var(--accent), #6C63FF); color: var(--light-gray) }
+.btn.ghost{ background: transparent; color: var(--light-gray); border: 1px solid rgba(229,233,240,0.06) }
+
+.success{ margin-top: 1rem; padding: 0.9rem; border-radius: 8px; background: rgba(108,99,255,0.12); color: var(--light-gray) }
+
+.contact-meta{ display: flex; gap: 2rem; margin-top: 1.25rem; color: var(--muted) }
+.contact-meta a{ color: var(--muted); text-decoration: none }
+
+@media (max-width: 880px){
+  .contact-form{ grid-template-columns: 1fr; }
+  .textarea{ grid-column: 1 }
+  .contact-inner{ padding: 1.25rem }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .success { transition: none !important }
+}

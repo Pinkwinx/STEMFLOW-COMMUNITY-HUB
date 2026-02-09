@@ -1,0 +1,108 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card h3 {
+  margin: 0.5rem;
+}
+
+.card p {
+  margin: 0 0.5rem 1rem;
+  color: gray;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 10;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 20;
+}
+
+.modal-card {
+  background: white;
+  width: min(90%, 500px);
+  border-radius: 16px;
+  overflow: hidden;
+  animation: scaleUp 0.3s ease;
+  position: relative;
+}
+
+.modal-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.modal-card h2 {
+  margin: 1rem;
+}
+
+.modal-card p {
+  margin: 0 1rem 1rem;
+}
+
+.desc {
+  color: gray;
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border: none;
+  background: black;
+  color: white;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}

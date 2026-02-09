@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import reactLogo from '../assets/react.svg'
 import './Home.css'
-import FloatingLines from '../component/Background'
+import FloatingLines from '../component/LineBackground'
 
 export default function Home() {
   return (

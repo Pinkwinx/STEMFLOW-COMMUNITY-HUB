@@ -10,10 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@embedpdf/react-pdf-viewer": "^2.5.0",
     "@tailwindcss/vite": "^4.1.18",
     "framer-motion": "^12.30.0",
     "gsap": "^3.14.2",
     "lenis": "^1.3.17",
+    "ogl": "^1.0.11",
+    "postprocessing": "^6.38.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.13.0",

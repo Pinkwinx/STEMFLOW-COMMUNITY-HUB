@@ -16,10 +16,10 @@ import Reference from './pages/Reference'
 function App() {
   const menuItems = [
     { label: 'Home', ariaLabel: 'Go to home page', link: '/' },
+    { label: 'About', ariaLabel: 'Learn about us', link: '/about' },
     { label: 'Resources', ariaLabel: 'Helpful resources', link: '/resources' },
     { label: 'Projects', ariaLabel: 'View projects', link: '/projects' },
     { label: 'Blog', ariaLabel: 'Read our blog', link: '/blog' },
-    { label: 'About', ariaLabel: 'Learn about us', link: '/about' },
     { label: 'Contact', ariaLabel: 'Get in touch', link: '/contact' },
     { label: 'Reference', ariaLabel: 'Get reference materials', link: '/reference' }
   ]

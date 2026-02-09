@@ -1,14 +1,40 @@
 import React from 'react'
-import reactLogo from '../assets/react.svg'
+import GradientBlinds from '../component/GradientBlindsBackground';
 import { Link } from 'react-router-dom'
 import './About.css'
 
 export default function About() {
   return (
+    <>
+        <section className="hero-wrapper">
+      <div className="hero-bg">
+        <GradientBlinds
+    gradientColors={['#FF9FFC', '#5227FF']}
+    angle={0}
+    noise={0.3}
+    blindCount={12}
+    blindMinWidth={50}
+    spotlightRadius={0.5}
+    spotlightSoftness={1}
+    spotlightOpacity={1}
+    mouseDampening={0.15}
+    distortAmount={0}
+    shineDirection="left"
+    mixBlendMode="lighten"
+  />
+      </div>
+      <div className="hero-overlay" />
+    
+      <div className="hero-content">
+        <h2 className="hero-top-title">About</h2>
+        <p className="hero-top-sub">
+          Who we are
+        </p>
+      </div>
+    </section>
     <div className="about-root">
       <div className="about-inner">
         <header className="about-hero">
-          <img src={reactLogo} alt="logo" className="about-logo" />
           <h1 className="about-title">About STEMFLOW Community</h1>
           <p className="about-lead">We empower students, mentors, and makers with resources, projects, and community events to learn and build together.</p>
           <div className="about-ctas">
@@ -19,7 +45,7 @@ export default function About() {
 
         <section className="about-mission">
           <h2>Our mission</h2>
-          <p>To make STEM learning accessible and collaborative by providing hands-on projects, curated resources, and mentorship opportunities for learners at every level.</p>
+          <p>At STEM Flow Community Hub, our mission is to make STEM accessible, inclusive, and empowering for every student. We are dedicated to creating a welcoming, supportive community where learners of all backgrounds can connect, grow, and explore their passions. By offering collaborative spaces, hands-on resources, and opportunities that encourage curiosity and innovation, we help students build confidence and discover their unique pathways in STEM. STEM Flow Community Hub exists to guide students as they flow toward their future—transforming questions into knowledge, ideas into projects, and potential into lifelong success.</p>
         </section>
 
         <section className="about-stats">
@@ -67,5 +93,6 @@ export default function About() {
         </section>
       </div>
     </div>
+    </>
   )
 }

@@ -7,36 +7,42 @@ const DEFAULT_SPOTLIGHT_RADIUS = 300;
 const DEFAULT_GLOW_COLOR = '132, 0, 255';
 const MOBILE_BREAKPOINT = 768;
 
-const cardData = [
+const defaultCardData = [
   {
     color: '#060010',
     title: 'Analytics',
     description: 'Track user behavior',
+    content: 'Full Analytics blog post goes here.'
   },
   {
     color: '#060010',
     title: 'Dashboard',
     description: 'Centralized data view',
+    content: 'Full Analytics blog post goes here.'
   },
   {
     color: '#060010',
     title: 'Collaboration',
     description: 'Work together seamlessly',
+    content: 'Full Analytics blog post goes here.'
   },
   {
     color: '#060010',
     title: 'Automation',
     description: 'Streamline workflows',
+    content: 'Full Analytics blog post goes here.'
   },
   {
     color: '#060010',
     title: 'Integration',
     description: 'Connect favorite tools',
+    content: 'Full Analytics blog post goes here.'
   },
   {
     color: '#060010',
     title: 'Security',
     description: 'Enterprise-grade protection',
+    content: 'Full Analytics blog post goes here.'
   }
 ];
 
@@ -83,8 +89,10 @@ const ParticleCard = ({
   glowColor = DEFAULT_GLOW_COLOR,
   enableTilt = true,
   clickEffect = false,
-  enableMagnetism = false
+  enableMagnetism = false,
+  onClick
 }) => {
+
   const cardRef = useRef(null);
   const particlesRef = useRef([]);
   const timeoutsRef = useRef([]);
@@ -302,10 +310,12 @@ const ParticleCard = ({
 
   return (
     <div
-      ref={cardRef}
-      className={`${className} particle-container`}
-      style={{ ...style, position: 'relative', overflow: 'hidden' }}
-    >
+  ref={cardRef}
+  className={`${className} particle-container`}
+  style={{ ...style, position: 'relative', overflow: 'hidden' }}
+  onClick={onClick}
+>
+
       {children}
     </div>
   );
@@ -465,6 +475,8 @@ const useMobileDetection = () => {
 };
 
 const MagicBento = ({
+  onCardClick,
+  customData = defaultCardData,
   textAutoHide = true,
   enableStars = true,
   enableSpotlight = true,
@@ -477,6 +489,7 @@ const MagicBento = ({
   clickEffect = true,
   enableMagnetism = true
 }) => {
+
   const gridRef = useRef(null);
   const isMobile = useMobileDetection();
   const shouldDisableAnimations = disableAnimations || isMobile;
@@ -494,7 +507,7 @@ const MagicBento = ({
       )}
 
       <BentoCardGrid gridRef={gridRef}>
-        {cardData.map((card, index) => {
+        {customData.map((card, index) => {
           const baseClassName = `magic-bento-card ${textAutoHide ? 'magic-bento-card--text-autohide' : ''} ${enableBorderGlow ? 'magic-bento-card--border-glow' : ''}`;
           const cardProps = {
             className: baseClassName,
@@ -507,22 +520,31 @@ const MagicBento = ({
           if (enableStars) {
             return (
               <ParticleCard
-                key={index}
-                {...cardProps}
-                disableAnimations={shouldDisableAnimations}
-                particleCount={particleCount}
-                glowColor={glowColor}
-                enableTilt={enableTilt}
-                clickEffect={clickEffect}
-                enableMagnetism={enableMagnetism}
-              >
+  key={index}
+  {...cardProps}
+  disableAnimations={shouldDisableAnimations}
+  particleCount={particleCount}
+  glowColor={glowColor}
+  enableTilt={enableTilt}
+  clickEffect={clickEffect}
+  enableMagnetism={enableMagnetism}
+  onClick={() => onCardClick(card)}
+>
                 <div className="magic-bento-card__header">
                   <div className="magic-bento-card__label">{card.label}</div>
                 </div>
                 <div className="magic-bento-card__content">
-                  <h2 className="magic-bento-card__title">{card.title}</h2>
-                  <p className="magic-bento-card__description">{card.description}</p>
-                </div>
+  {card.image && (
+    <img
+      src={card.image}
+      alt={card.title}
+      className="magic-bento-card__image"
+    />
+  )}
+  <h2 className="magic-bento-card__title">{card.title}</h2>
+  <p className="magic-bento-card__description">{card.description}</p>
+</div>
+
               </ParticleCard>
             );
           }

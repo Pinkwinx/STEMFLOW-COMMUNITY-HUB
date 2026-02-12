@@ -35,7 +35,7 @@ export default function Home() {
         <div className="hero-grid">
           <div className="hero-content">
             <h1 className="hero-title reveal">
-              Build, Learn, and Share with <span className="accent">STEMFLOW Community</span>
+              Build, Learn, and Share with STEMFLOW Community
             </h1>
             <p className="hero-sub reveal delay-1">
               Hands-on projects, curated resources, and community events designed to help learners and mentors build real skills together.
